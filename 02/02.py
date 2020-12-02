@@ -15,13 +15,10 @@ def isvalid_silver(_min, _max, _char, _str):
 
 def isvalid_gold(_min, _max, _char, _str):
     valid = 0
-    for c in range(len(_str)):
-        if c == _min - 1:
-            if _str[c] == _char:
-                valid = valid + 1
-        elif c == _max - 1:
-            if _str[c] == _char:
-                valid = valid + 1
+    if _str[_min-1] == _char:
+        valid = valid + 1
+    if _str[_max-1] == _char:
+        valid = valid + 1
     return (valid == 1)
 
 for i in f:
@@ -33,7 +30,6 @@ for i in f:
     mins = temporal[0].strip()
     maxs = temporal[1].strip()
     if isvalid_gold(int(mins), int(maxs), char, strs):
-        print("Min {} Max {} Char {} Str {}".format(mins, maxs, char, strs))
         valids = valids + 1
 
 print("Valid inputs are {}".format(valids))
